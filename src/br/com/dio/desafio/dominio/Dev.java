@@ -3,9 +3,12 @@ package br.com.dio.desafio.dominio;
 import java.util.*;
 
 public class Dev {
+
+    private final UUID id = UUID.randomUUID();
     private String nome;
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
+
 
     public void inscreverBootcamp(Bootcamp bootcamp){
         this.conteudosInscritos.addAll(bootcamp.getConteudos());
@@ -73,5 +76,9 @@ public class Dev {
     @Override
     public int hashCode() {
         return Objects.hash(nome, conteudosInscritos, conteudosConcluidos);
+    }
+
+    public UUID getId() {
+        return id;
     }
 }
